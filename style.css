@@ -6,37 +6,45 @@ body, html {
     font-family:'Orbitron', sans-serif;;
 }
 
+
 .header {
     background-color: #0033dd;
     z-index: 10;
     display: flex;
-    align-items: center;
+    align-items:center ;
     position: sticky;
     top: 0;
-    justify-content: flex-end;
+    justify-content: flex-start;
     text-transform: uppercase;
     font-weight: 700;
     line-height: 1;
     font-size: .875rem;
-    gap: .75rem;
-    padding: 1rem 1.5rem;
+    gap: 0;
+    padding: 1rem 1.5rem 1rem 0;
     letter-spacing: .15rem;
 }
 
-.logo img {
-    height: 45px;
-    margin-right: 100px;
+.header ul {
+    margin-left: auto;
 }
+
+.logo img {
+    margin-left: 15px ;
+    height: 45px;
+}
+
  li  {
     display: inline-block;
-    padding: 1rem;
+    padding: 0.25rem;
     font-family: sans-serif;
     font-size: small;
     font-weight: 800;
     color: white;
     cursor: pointer;
     text-transform: uppercase;
-    
+    margin: 10px;
+    margin-bottom: 0;
+
 }
 .mebut{
     border: none;
@@ -50,6 +58,8 @@ body, html {
     letter-spacing: 2px;
     cursor: pointer;
     font-size: 14px;
+    margin-right: 20px;
+    margin-left: 10px;
 }
 .menu-icon {
     display: flex;
@@ -58,6 +68,7 @@ body, html {
     width: 30px;
     height: 20px;
     cursor: pointer;
+    margin-right: 20px;
 }
 
 .menu-icon .bar {
@@ -393,7 +404,22 @@ form{
     display: inline-block;
 }
 
-.header li::after, .footer-center li::after {
+.header li::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    background-color: white;
+    transition: width 0.3s ease-in-out;
+}
+
+.header li:hover::after {
+    width: 100%;
+}
+
+.footer-center li::after {
     content: '';
     position: absolute;
     left: 10px;
@@ -404,8 +430,49 @@ form{
     transition: width 0.3s ease-in-out;
 }
 
-.header li:hover::after, .footer-center li:hover::after {
+.footer-center li:hover::after {
     width:100%;
 
+}
+
+.dropdown {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #0033dd;
+    min-width: 200px;
+    z-index: 1000;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.dropdown li {
+    display: block;
+    padding: 20px 15px;
+    color: white;
+    text-transform: uppercase;
+    font-family: sans-serif;
+    font-size: small;
+    font-weight: 800;
+    cursor: pointer;
+}
+
+.header li:hover .dropdown {
+    display: block;
+}
+
+/* Initial styles for slide-in elements */
+.f1, .f2, .f3, .f4, .f5, .imobut1, .imobut2, .imobut3, .imobut4, .imobut5 {
+    transform: translateY(100px);
+    opacity: 0;
+    transition: transform 1.2s ease-out, opacity 1.2s ease-out;
+}
+
+/* Class to trigger slide-in */
+.slide-in {
+    transform: translateY(0);
+    opacity: 1;
 }
 
